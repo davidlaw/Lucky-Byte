@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>财神亲批·九块九开运箴言</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif;
+      background: linear-gradient(135deg, #ffd700 0%, #ff8c00 100%);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* 背景装饰 */
+    body::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      z-index: 0;
+    }
+
+    .container {
+      max-width: 500px;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 20px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+      padding: 30px;
+      margin-top: 40px;
+      position: relative;
+      z-index: 1;
+      backdrop-filter: blur(10px);
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .logo {
+      width: 100px;
+      height: 100px;
+      background: linear-gradient(45deg, #ff8c00, #ffd700);
+      border-radius: 50%;
+      margin: 0 auto 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      color: white;
+      font-weight: bold;
+      box-shadow: 0 10px 20px rgba(255, 140, 0, 0.3);
+    }
+
+    .title {
+      font-size: 24px;
+      color: #333;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+
+    .subtitle {
+      font-size: 16px;
+      color: #666;
+    }
+
+    .price-tag {
+      display: inline-block;
+      background: linear-gradient(45deg, #ff4500, #ff8c00);
+      color: white;
+      padding: 8px 20px;
+      border-radius: 25px;
+      font-size: 18px;
+      font-weight: bold;
+      margin: 20px 0;
+      box-shadow: 0 5px 15px rgba(255, 69, 0, 0.3);
+    }
+
+    .cta-button {
+      width: 100%;
+      background: linear-gradient(45deg, #ff8c00, #ffd700);
+      color: white;
+      border: none;
+      padding: 18px;
+      border-radius: 50px;
+      font-size: 18px;
+      font-weight: bold;
+      cursor: pointer;
+      margin: 20px 0;
+      box-shadow: 0 10px 20px rgba(255, 140, 0, 0.3);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 15px 25px rgba(255, 140, 0, 0.4);
+    }
+
+    .cta-button:active {
+      transform: translateY(0);
+    }
+
+    .cta-button::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -60%;
+      width: 20px;
+      height: 200%;
+      background: rgba(255, 255, 255, 0.3);
+      transform: rotate(25deg);
+      transition: all 0.6s;
+    }
+
+    .cta-button:hover::after {
+      left: 120%;
+    }
+
+    .features {
+      margin: 25px 0;
+      text-align: center;
+    }
+
+    .feature-item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 10px 0;
+      color: #555;
+      font-size: 14px;
+    }
+
+    .feature-icon {
+      margin-right: 8px;
+      color: #ff8c00;
+      font-weight: bold;
+    }
+
+    .disclaimer {
+      font-size: 12px;
+      color: #999;
+      text-align: center;
+      margin-top: 20px;
+      line-height: 1.5;
+    }
+
+    .fortune-container {
+      display: none;
+      width: 100%;
+      background: white;
+      border-radius: 15px;
+      padding: 25px;
+      margin-top: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      animation: fadeIn 0.5s ease-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .fortune-title {
+      text-align: center;
+      font-size: 20px;
+      color: #ff8c00;
+      margin-bottom: 20px;
+      font-weight: bold;
+    }
+
+    .fortune-section {
+      margin: 15px 0;
+      padding: 15px;
+      border-radius: 10px;
+      background: #fff9e6;
+      border-left: 4px solid #ffd700;
+    }
+
+    .fortune-label {
+      font-weight: bold;
+      color: #ff8c00;
+      margin-bottom: 5px;
+      display: block;
+    }
+
+    .fortune-content {
+      color: #333;
+      line-height: 1.6;
+    }
+
+    .disclaimer-full {
+      font-size: 11px;
+      color: #aaa;
+      text-align: center;
+      margin-top: 20px;
+      line-height: 1.4;
+    }
+
+    .loading {
+      display: none;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .spinner {
+      border: 4px solid #f3f3f3;
+      border-top: 4px solid #ff8c00;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      animation: spin 1s linear infinite;
+      margin: 0 auto 15px;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .payment-prompt {
+      text-align: center;
+      padding: 20px;
+      color: #666;
+    }
+
+    @media (max-width: 520px) {
+      .container {
+        margin: 20px 15px;
+        padding: 20px;
+      }
+      
+      .title {
+        font-size: 22px;
+      }
+      
+      .cta-button {
+        padding: 16px;
+        font-size: 17px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="logo">財</div>
+      <h1 class="title">财神亲批·九块九开运箴言</h1>
+      <p class="subtitle">AI增强情绪价值，开启好运模式</p>
+    </div>
+
+    <div class="price-tag">仅需 ¥9.9</div>
+
+    <div class="features">
+      <div class="feature-item">
+        <span class="feature-icon">✓</span>
+        <span>30秒内快速交付个性化报告</span>
+      </div>
+      <div class="feature-item">
+        <span class="feature-icon">✓</span>
+        <span>专业AI分析，专属开运指导</span>
+      </div>
+      <div class="feature-item">
+        <span class="feature-icon">✓</span>
+        <span>仪式感行动指南，提升运势</span>
+      </div>
+    </div>
+
+    <button class="cta-button" id="payButton">
+      财神爷正指你！点击接好运 ↓
+    </button>
+
+    <div class="loading" id="loading">
+      <div class="spinner"></div>
+      <p>财神爷正在为您掐指一算...</p>
+    </div>
+
+    <div class="payment-prompt" id="paymentPrompt" style="display: none;">
+      <p>正在跳转支付页面...</p>
+      <p>请在支付完成后返回查看您的专属开运箴言</p>
+    </div>
+
+    <div class="fortune-container" id="fortuneContainer">
+      <h2 class="fortune-title">您的专属开运箴言</h2>
+      
+      <div class="fortune-section">
+        <span class="fortune-label">【好的预期】财神爷说</span>
+        <div class="fortune-content" id="expectationContent">阁下明后两日，财星渐明，尤利东方。申时易有意外之喜敲门</div>
+      </div>
+      
+      <div class="fortune-section">
+        <span class="fortune-label">【情绪价值】箴言赐福</span>
+        <div class="fortune-content" id="blessingContent">你近期心思活络，正是求变之时。财神见你心诚，特此点拨：你命带福禄，所欠无非东风</div>
+      </div>
+      
+      <div class="fortune-section">
+        <span class="fortune-label">【最小行动】接运之法</span>
+        <div class="fortune-content" id="ritualContent">明日清晨，面向东方静立片刻，深呼吸九次</div>
+      </div>
+      
+      <div class="disclaimer-full" id="disclaimerText">
+        天时已指，地利已明，而人和在君。心诚则灵，动则气转。福祸相依，顺其自然，方为大道。
+      </div>
+    </div>
+
+    <div class="disclaimer">
+      温馨提示：本服务为文化娱乐产品，仅供情绪价值体验，不构成命运预测
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const payButton = document.getElementById('payButton');
+      const loading = document.getElementById('loading');
+      const paymentPrompt = document.getElementById('paymentPrompt');
+      const fortuneContainer = document.getElementById('fortuneContainer');
+      
+      // 生成UUID
+      function generateUUID() {
+        return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+          const r = Math.random() * 16 | 0;
+          const v = c == 'x' ? r : (r & 0x3 | 0x8);
+          return v.toString(16);
+        });
+      }
+      
+      // 模拟支付流程
+      payButton.addEventListener('click', async function() {
+        // 显示加载状态
+        payButton.style.display = 'none';
+        loading.style.display = 'block';
+        
+        try {
+          // 生成用户ID
+          const userId = generateUUID();
+          
+          // 发起支付请求
+          const paymentResponse = await fetch('/api/payment/initiate', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+              userId: userId,
+              amount: 9.9,
+              productName: '财神亲批·九块九开运箴言'
+            })
+          });
+          
+          const paymentData = await paymentResponse.json();
+          
+          if (paymentData.success) {
+            // 显示支付提示
+            loading.style.display = 'none';
+            paymentPrompt.style.display = 'block';
+            
+            // 模拟跳转到支付页面
+            setTimeout(() => {
+              // 这里应该是实际的支付页面跳转
+              // window.location.href = paymentData.data.paymentUrl;
+              
+              // 为了演示，直接生成箴言
+              setTimeout(async () => {
+                await generateFortune(userId);
+              }, 2000);
+            }, 1500);
+          } else {
+            alert('支付发起失败，请稍后重试');
+            resetUI();
+          }
+        } catch (error) {
+          console.error('支付请求失败:', error);
+          alert('网络错误，请检查连接后重试');
+          resetUI();
+        }
+      });
+      
+      // 生成开运箴言
+      async function generateFortune(userId) {
+        try {
+          const response = await fetch('/api/fortune/generate', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+              userId: userId,
+              templateType: 'standard'
+            })
+          });
+          
+          const data = await response.json();
+          
+          if (data.success) {
+            displayFortune(data.data.content);
+          } else {
+            alert('生成开运箴言失败，请稍后重试');
+            resetUI();
+          }
+        } catch (error) {
+          console.error('生成箴言请求失败:', error);
+          alert('网络错误，请检查连接后重试');
+          resetUI();
+        }
+      }
+      
+      // 显示开运箴言
+      function displayFortune(fortune) {
+        document.getElementById('expectationContent').textContent = fortune.expectation;
+        document.getElementById('blessingContent').textContent = fortune.blessing;
+        document.getElementById('ritualContent').textContent = fortune.ritual;
+        
+        // 隐藏支付相关元素
+        paymentPrompt.style.display = 'none';
+        
+        // 显示箴言容器
+        fortuneContainer.style.display = 'block';
+        
+        // 平滑滚动到箴言部分
+        fortuneContainer.scrollIntoView({ behavior: 'smooth' });
+      }
+      
+      // 重置UI状态
+      function resetUI() {
+        loading.style.display = 'none';
+        paymentPrompt.style.display = 'none';
+        payButton.style.display = 'block';
+      }
+    });
+  </script>
+</body>
+</html>
