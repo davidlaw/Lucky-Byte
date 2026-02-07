@@ -1,0 +1,31 @@
+{
+  "name": "lucky-byte-service",
+  "version": "1.0.0",
+  "description": "财神亲批·九块九开运箴言 - AI驱动的情绪价值服务",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon ./api/server.js",
+    "start": "node ./api/server.js",
+    "test": "jest"
+  },
+  "keywords": [
+    "ai",
+    "fortune-telling",
+    "emotional-value",
+    "feng-shui",
+    "lucky-message"
+  ],
+  "author": "Lucky Byte Team",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "axios": "^1.4.0",
+    "dotenv": "^16.0.3",
+    "crypto-js": "^4.1.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22",
+    "jest": "^29.5.0"
+  }
+}
